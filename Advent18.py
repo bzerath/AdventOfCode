@@ -36,6 +36,10 @@ def update_mat(data):
                 if temp_total == 3:
                     newLife[y, x] = 1
     # update data
+    newLife[0, 0] = 1
+    newLife[0, len(life[0])-1] = 1
+    newLife[len(life)-1, 0] = 1
+    newLife[len(life)-1, len(life[0])-1] = 1
     mat.set_data(newLife)
     life = newLife
     return [mat]
@@ -56,7 +60,11 @@ def update(life):
             else:
                 if temp_total == 3:
                     newLife[y, x] = 1
-    # update data
+
+    newLife[0, 0] = 1
+    newLife[0, len(life[0])-1] = 1
+    newLife[len(life)-1, 0] = 1
+    newLife[len(life)-1, len(life[0])-1] = 1
     return newLife
 
 
@@ -76,8 +84,14 @@ if __name__ == "__main__":
     life = life.astype(int)
 
     """print life
-    life = update(life)
-    print life"""
+    for i in range(100):
+        life = update(life)
+        #print "state", i+1
+        #print life
+
+    #print "\n end"
+    #print life
+    print sum(sum(life))"""
 
 
     fig, ax = plt.subplots()
