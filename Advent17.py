@@ -4,17 +4,18 @@ from itertools import permutations, combinations
 import timeit
 
 
-def mini_size_of_solution(containers, value):
-    for solution_size in xrange(len(containers)):
-        for combi in combinations(containers, solution_size):
-            if sum(combi) == value:
-                return solution_size
 
 def chrono():
     """
     better one.
     :return:
     """
+    def mini_size_of_solution(containers, value):
+        for solution_size in xrange(len(containers)):
+            for combi in combinations(containers, solution_size):
+                if sum(combi) == value:
+                    return solution_size
+
     containers = [43, 3, 4, 10, 21, 44, 4, 6, 47, 41, 34, 17, 17, 44, 36, 31, 46, 9, 27, 38]
     value = 150
     nombre = 0
