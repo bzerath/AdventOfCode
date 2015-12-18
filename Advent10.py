@@ -2,6 +2,7 @@
 from __future__ import unicode_literals  # Everything is UTF-8
 import time
 import timeit
+import numpy as np
 
 def divide_groups(string):
     groups = []
@@ -32,6 +33,24 @@ def look_and_say(string):
     return say
 
 
+def fur_et_a_mesure_numpy(string):
+    temp = string[0]
+    compteur = 1
+    liste = np.array([])
+    if len(string) > 1:
+        for i in xrange(1, len(string)):
+            if string[i] == temp:
+                compteur += 1
+            else:
+                liste = np.append(liste, [str(compteur), temp])
+                compteur = 1
+            temp = string[i]
+        liste = np.append(liste, [str(compteur), temp])  # for the last digit.
+    else:
+        liste = ["1", temp]
+
+    return liste
+
 def fur_et_a_mesure(string):
     temp = string[0]
     compteur = 1
@@ -49,8 +68,7 @@ def fur_et_a_mesure(string):
     else:
         liste = ["1", temp]
 
-    output = "".join(liste)
-    return output
+    return liste
 
 
 def method1():
@@ -74,7 +92,8 @@ def method7():
 loop_count = 80000
 
 if __name__ == "__main__":
-    string = "1113122113"
+    string = np.array(["1", "1", "1", "3", "1", "2", "2", "1", "1", "3"])
+    #string = "1113122113"
     debut = time.time()
     """method1()
 
@@ -83,12 +102,11 @@ if __name__ == "__main__":
     print 'method6=', timeit.timeit(method6, number=10)
     print 'method7=', timeit.timeit(method7, number=10)"""
 
-    for i in range(50):
-        #string = look_and_say(string)
+    for i in range(40):
         string = fur_et_a_mesure(string)
-        #print i, "done, ", len(string), time.time() - debut
 
     print len(string), time.time() - debut
+
 
 
 
