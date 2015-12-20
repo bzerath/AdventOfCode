@@ -46,5 +46,9 @@ if __name__ == "__main__":
     print len(solutions)
 
 
+    # Part 2
+    # thanks https://www.reddit.com/r/adventofcode/comments/3xflz8/day_19_solutions/cy4h7ji
+    print len(list(atomGenerator(Molecule))) - Molecule.count("Rn") - Molecule.count("Ar") - 2*Molecule.count("Y") - 1
+
 
 
