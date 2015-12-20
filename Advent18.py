@@ -96,7 +96,7 @@ if __name__ == "__main__":
 
     fig, ax = plt.subplots()
     mat = ax.matshow(life)
-    ani = animation.FuncAnimation(fig, update_mat, interval=50, save_count=50)
+    ani = animation.FuncAnimation(fig, update_mat, interval=5)
     plt.show()
 
 

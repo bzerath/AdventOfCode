@@ -102,7 +102,7 @@ if __name__ == "__main__":
     print 'method6=', timeit.timeit(method6, number=10)
     print 'method7=', timeit.timeit(method7, number=10)"""
 
-    for i in range(40):
+    for i in range(50):
         string = fur_et_a_mesure(string)
 
     print len(string), time.time() - debut
