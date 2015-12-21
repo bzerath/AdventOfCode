@@ -29,10 +29,10 @@ def testStats(personnage):
             if not boss.attack(player):
                 pass
             else:
-                print "Boss wins !"
+                #print "Boss wins !"
                 return False
         else:
-            print "Players wins !"
+            #print "Players wins !"
             return True
 
 
@@ -78,7 +78,16 @@ if __name__ == "__main__":
             player.wearItem(solution[1][objet])
 
         if testStats(player):
-            print solution
+            print "p1", solution
+            break
+
+    for solution in reversed(solutions):
+        player = Personnage(0, 0, 100, "Player")
+        for objet in solution[1]:
+            player.wearItem(solution[1][objet])
+
+        if not testStats(player):
+            print "p2", solution
             break
 
 
