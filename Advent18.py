@@ -18,6 +18,7 @@ def total(grid, x, y):
 
     return [top, topright, right, bottomright, bottom, bottomleft, left, topleft]
 
+
 def update_mat(data):
     global life
     # copy grid since we require 8 neighbors for calculation
@@ -36,13 +37,14 @@ def update_mat(data):
                 if temp_total == 3:
                     newLife[y, x] = 1
     # update data
-    newLife[0, 0] = 1
+    """newLife[0, 0] = 1
     newLife[0, len(life[0])-1] = 1
     newLife[len(life)-1, 0] = 1
-    newLife[len(life)-1, len(life[0])-1] = 1
+    newLife[len(life)-1, len(life[0])-1] = 1"""
     mat.set_data(newLife)
     life = newLife
     return [mat]
+
 
 def update(life):
     # copy grid since we require 8 neighbors for calculation
@@ -61,16 +63,17 @@ def update(life):
                 if temp_total == 3:
                     newLife[y, x] = 1
 
-    newLife[0, 0] = 1
+    """newLife[0, 0] = 1
     newLife[0, len(life[0])-1] = 1
     newLife[len(life)-1, 0] = 1
-    newLife[len(life)-1, len(life[0])-1] = 1
+    newLife[len(life)-1, len(life[0])-1] = 1"""
     return newLife
 
 
 
 if __name__ == "__main__":
-    life = []
+    """ life = []
+    print("Début du parsing...")
     with open("Inputs/Advent18.txt") as fichier:
         ligne = fichier.readline()
         while ligne != "":
@@ -79,9 +82,17 @@ if __name__ == "__main__":
                 temp.append(1 if character == "#" else 0)
             life.append(temp)
             ligne = fichier.readline()
-
+    print("Fin du parsing, début de la conversion...")
     life = np.asarray(life)
+    print("Fin de la conversion")"""
+
+    life = np.random.rand(100, 100)
+    for i in xrange(len(life)):
+        for j in xrange(len(life[i])):
+            life[i, j] = 1 if life[i, j] > 0.7 else 0
     life = life.astype(int)
+
+
 
     """print life
     for i in range(100):
@@ -92,7 +103,6 @@ if __name__ == "__main__":
     #print "\n end"
     #print life
     print sum(sum(life))"""
-
 
     fig, ax = plt.subplots()
     mat = ax.matshow(life)
