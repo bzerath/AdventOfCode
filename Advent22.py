@@ -36,8 +36,8 @@ class Personnage_v2(Personnage):
         #self.mort_en_debut_de_tour = self.apply_effect()
         #advers.mort_en_debut_de_tour = advers.apply_effect()
 
-            if self._spell(spell_name, advers):
-                return True
+        if self._spell(spell_name, advers):
+            return True
 
 
 
@@ -100,21 +100,21 @@ class Personnage_v2(Personnage):
         self.mana -= 173
         self.mana_depensee += 173
         if advers.effects["Poison"] > 0:
-            return True
+            self.pv = 0
         advers.effects["Poison"] = self._nb_tours_poison
 
     def _Recharge(self):
         self.mana -= 229
         self.mana_depensee += 229
         if self.effects["Recharge"] > 0:
-            return True
+            self.pv = 0
         self.effects["Recharge"] = self._nb_tours_Recharge
 
     def _Shield(self):
         self.mana -= 113
         self.mana_depensee += 113
         if self.effects["Shield"] > 0:
-            return True
+            self.pv = 0
         self.effects["Shield"] = self._nb_tours_shield
 
     @sort_standard
@@ -138,13 +138,14 @@ def test_enchainement(enchainements):
             #print "-- Player turn --"
             #print mage
             #print boss
+            mage.pv -= 1
             mage_mort = mage.apply_effect()
+            boss_mort = boss.apply_effect()
             if not mage_mort:
-                boss_mort = boss.apply_effect()
                 if not boss_mort:
                     mage.joue_contre(boss, sort)
                 else:
-                    print mage.mana_depensee, enchainement
+                    print "1",mage.mana_depensee, enchainement
                     return True
             else:
                 break
@@ -152,16 +153,16 @@ def test_enchainement(enchainements):
             #print "-- Boss turn --"
             #print mage
             #print boss
+            mage_mort = mage.apply_effect()
             boss_mort = boss.apply_effect()
-            if not boss_mort:
-                mage_mort = mage.apply_effect()
-                if not mage_mort:
+            if not mage_mort:
+                if not boss_mort:
                     boss.joue_contre(mage, "Physique")
                 else:
-                    break
+                    print mage.mana_depensee, enchainement
+                    return True
             else:
-                print mage.mana_depensee, enchainement
-                return True
+                break
 
     return False
 
