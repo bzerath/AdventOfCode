@@ -12,10 +12,10 @@ class Personnage:
     def attack(self, advers):
         # print self.name, "attacks", advers.name
         advers.pv -= max(self.attack_score - advers.defend_score, 1)
-        """if advers.pv <= 0:
+        if advers.pv <= 0:
             return True
         else:
-            return False"""
+            return False
 
     def wearItem(self, objet):
         self.attack_score += objet[1]

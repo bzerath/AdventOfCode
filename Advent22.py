@@ -121,6 +121,10 @@ class Personnage_v2(Personnage):
     def _attack_magic(self, advers, dmg):
         advers.pv -= dmg
 
+    def attack(self, advers):
+        # print self.name, "attacks", advers.name
+        advers.pv -= max(self.attack_score - advers.defend_score, 1)
+
     def __str__(self):
         return "- {nom} has {pv} hit points, {armor} armor, {mana} mana".format(nom=self.name,
                                                                                 pv=self.pv,
