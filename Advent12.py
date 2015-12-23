@@ -8,6 +8,7 @@ def analyse_data_dico(dico):
     somme = 0
     for cle in dico:
         somme += analyse_data(dico[cle])
+        # Part 2:
         if dico[cle] == "red":
             return 0
     return somme
@@ -29,7 +30,7 @@ def analyse_data(data):
 
 
 if __name__ == "__main__":
-    with open("Advent12.json") as data_file:
+    with open("Inputs/Advent12.json") as data_file:
         data_json = json.load(data_file, encoding="utf-8")
 
     #pprint(data_json)
