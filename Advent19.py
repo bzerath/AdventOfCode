@@ -48,6 +48,21 @@ if __name__ == "__main__":
 
     # Part 2
     # thanks https://www.reddit.com/r/adventofcode/comments/3xflz8/day_19_solutions/cy4h7ji
+    # Explanation:
+    #   - Every transformation is in the form $ -> µ+£ except many in the forms:
+    #       - $ -> µ+ Rn +£+ Ar + (Y+¤){0-2}
+    #   - Given that Rn, Ar and Y are only on the right of the equations, they are detritus, they can be skipped, returning to the form $ -> µ+£
+    #   - So, we take the full molecule, in which we take out Rn, Ar and Y (2 times for Y because it is always followed by 1 atom)
+    #   - We obtain a molecule 201 atoms long.
+    #   - The question now is : How many switches $ -> µ+£ (so, from one atom to two) we had to make in order to switch from a 1 atom $
+    #       molecule to a 201 atoms molecule ?
+    #       - Given that we gain 1 atom per switch:
+    #           - 1 atom to 2: 1 switch
+    #           - 2 atoms to 3: 2 switches
+    #           - 3 atoms to 4: 3 switches
+    #           - n atoms to n+1: n switches
+    #   - The answer is:
+    #           number of atoms              -  number of Rn        -   number or Ar       -    2 * number of Y    - 1
     print len(list(atomGenerator(Molecule))) - Molecule.count("Rn") - Molecule.count("Ar") - 2*Molecule.count("Y") - 1
 
 
