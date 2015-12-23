@@ -83,8 +83,8 @@ for second in range(2503):
     checking_leader(rennes)
 
 
-for renne in rennes:
-    print renne
+print "P1:", sorted(rennes, key=lambda renne: renne.distance)[-1]
+print "P2:", sorted(rennes, key=lambda renne: renne.points)[-1]
 
 
 
