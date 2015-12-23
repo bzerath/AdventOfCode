@@ -5,7 +5,7 @@ import timeit
 
 
 
-def chrono():
+def p2():
     """
     better one.
     :return:
@@ -25,7 +25,7 @@ def chrono():
             nombre += 1
     return nombre
 
-def chrono2():
+def p1():
     containers = [43, 3, 4, 10, 21, 44, 4, 6, 47, 41, 34, 17, 17, 44, 36, 31, 46, 9, 27, 38]
     value = 150
     mini_size = len(containers)
@@ -33,10 +33,7 @@ def chrono2():
     for i in range(len(containers)):
         for combi in combinations(containers, i):
             if sum(combi) == value:
-                mini_size = min(len(combi), mini_size)
-    for combi in combinations(containers, mini_size):
-        if sum(combi) == value:
-            nombre += 1
+                nombre += 1
     return nombre
 
 
@@ -44,9 +41,8 @@ def chrono2():
 if __name__ == "__main__":
     #containers = [20, 15, 10, 5, 5]
 
-
-    print "old =", timeit.timeit(chrono2, number=30)
-    print "new =", timeit.timeit(chrono, number=30)
+    print "p1", p1()
+    print "p2", p2()
 
 
 
