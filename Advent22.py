@@ -142,7 +142,7 @@ def test_enchainement(enchainements):
             #print "-- Player turn --"
             #print mage
             #print boss
-            mage.pv -= 1
+            mage.pv -= 1  # Part 2
             mage_mort = mage.apply_effect()
             boss_mort = boss.apply_effect()
             if not mage_mort:
