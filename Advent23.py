@@ -22,7 +22,7 @@ if __name__ == "__main__":
     numLigne = 0
     while numLigne < len(lignes):
         ligne = lignes[numLigne].replace("\n", "").replace(",", "").split(" ")
-        print ligne
+        # print ligne
         if ligne[0][0] != "j":
             registers[ligne[1]] = instruction(ligne[0], registers[ligne[1]])
         else:

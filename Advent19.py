@@ -33,7 +33,7 @@ if __name__ == "__main__":
             transformation[ligne[0]].append(ligne[2])
         else:
             transformation[ligne[0]] = [ligne[2]]
-    pprint(transformation)
+    # pprint(transformation)
 
     solutions = []
     tests = 0
@@ -43,7 +43,7 @@ if __name__ == "__main__":
                 solutions.append("".join([Molecule[:i], possibilite, Molecule[i+len(atome):]]))
     solutions = list(set(solutions))
 
-    print len(solutions)
+    print "p1", len(solutions)
 
 
     # Part 2
@@ -63,7 +63,7 @@ if __name__ == "__main__":
     #           - n atoms to n+1: n switches
     #   - The answer is:
     #           number of atoms              -  number of Rn        -   number or Ar       -    2 * number of Y    - 1
-    print len(list(atomGenerator(Molecule))) - Molecule.count("Rn") - Molecule.count("Ar") - 2*Molecule.count("Y") - 1
+    print "p2", len(list(atomGenerator(Molecule))) - Molecule.count("Rn") - Molecule.count("Ar") - 2*Molecule.count("Y") - 1
 
 
 

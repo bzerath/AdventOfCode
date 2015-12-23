@@ -4,7 +4,7 @@ from pprint import pprint
 import itertools
 
 
-input1 = ["Alice would gain 54 happiness units by sitting next to Bob.",
+"""input1 = ["Alice would gain 54 happiness units by sitting next to Bob.",
           "Alice would lose 79 happiness units by sitting next to Carol.",
           "Alice would lose 2 happiness units by sitting next to David.",
           "Bob would gain 83 happiness units by sitting next to Alice.",
@@ -15,7 +15,7 @@ input1 = ["Alice would gain 54 happiness units by sitting next to Bob.",
           "Carol would gain 55 happiness units by sitting next to David.",
           "David would gain 46 happiness units by sitting next to Alice.",
           "David would lose 7 happiness units by sitting next to Bob.",
-          "David would gain 41 happiness units by sitting next to Carol."]
+          "David would gain 41 happiness units by sitting next to Carol."]"""
 
 with open("Inputs/Advent13.txt") as fichier:
     input1 = fichier.readlines()
@@ -35,7 +35,7 @@ for ligne in input1:
             input_formatted[ligne[0]] = {}
         input_formatted[ligne[0]][ligne[-1]] = - int(ligne[3])
 
-pprint(input_formatted)
+# pprint(input_formatted)
 
 
 solutions = []

@@ -60,10 +60,10 @@ def version_perso():
 
 
 if __name__ == "__main__":
-    sugar = Ingredient("Sugar", 3,0,0,-3,2)
-    sprinkles = Ingredient("Sprinkles", -3,3,0,0,9)
-    candy = Ingredient("Candy", -1,0,4,0,1)
-    chocolate = Ingredient("Chocolate", 0,0,-2,2,8)
+    sugar = Ingredient("Sugar", 3, 0, 0, -3, 2)
+    sprinkles = Ingredient("Sprinkles", -3, 3, 0, 0, 9)
+    candy = Ingredient("Candy", -1, 0, 4, 0, 1)
+    chocolate = Ingredient("Chocolate", 0, 0, -2, 2, 8)
 
     print 'method net=', timeit.timeit(version_net, number=30)
     print 'method perso=', timeit.timeit(version_perso, number=30)

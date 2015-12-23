@@ -73,5 +73,6 @@ if __name__ == "__main__":
     print check_rule1(mdp)
     print check_rule3(mdp)"""
 
-    print next_pswd("cqjxxyzz")
+    print "p1", next_pswd("cqjxjnds")
+    print "p2", next_pswd(next_pswd("cqjxjnds"))
 
