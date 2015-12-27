@@ -14,7 +14,6 @@ if __name__ == "__main__":
 
     codes = np.zeros((2, 2), dtype=np.long)
     codes[0, 0] = 20151125
-    print codes
 
     precedent = codes[0, 0]
 
